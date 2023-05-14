@@ -10,18 +10,20 @@ Install dependencies
 npm install
 ```
 
-## Running tests
-
-To run all tests
-
-### Jest way
+Run app
 
 ```sh
-npm run test:jest
+npm run start
+```
+
+## Running Jest tests
+
+```sh
+npm run test
 ```
 
 To run all tests in watch mode
 
 ```sh
-npm run test:jest:watch
+npm run test:watch
 ```
