@@ -1,4 +1,4 @@
-import { css, Theme, useTheme } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 
 const Nav = () => {
   const theme = useTheme();

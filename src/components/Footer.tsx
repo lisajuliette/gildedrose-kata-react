@@ -31,6 +31,7 @@ const Footer = () => {
               css={anchorStyles}
               target="_blank"
               href="https://github.com/lisajuliette/gildedrose-kata-react"
+              rel="noreferrer"
             >
               <Github />
             </a>

@@ -1,5 +1,4 @@
 import VisualEntrances from "./VisualEntrances";
-import { useTheme } from "@emotion/react";
 import Grid from "./common/Grid";
 import GridItem from "./common/GridItem";
 import Image from "./common/Image";
@@ -10,8 +9,6 @@ import imagePotion from "../assets/images/potion_c.png";
 import imageSpurt from "../assets/images/spurt.png";
 
 const ProductShowcase = () => {
-  const theme = useTheme();
-
   const images = [
     { src: imageOrb, alt: "Image of crystal orb" },
     { src: imageGems, alt: "Image of 3 gems" },

@@ -15,9 +15,9 @@ export default function useStickyOnScroll(
       if (ref.current) {
         let sticky = false;
         if (elementOffset) {
-          sticky = scrollY > offsetTop! - elementOffset;
+          sticky = scrollY > (offsetTop ?? 0) - elementOffset;
         } else {
-          sticky = scrollY > offsetTop!;
+          sticky = scrollY > (offsetTop ?? 0);
         }
         setIsSticky(sticky);
       }
