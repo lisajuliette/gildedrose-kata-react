@@ -1,38 +1,38 @@
-import { useEffect, useState, RefObject } from 'react';
+import { useEffect, useState, RefObject } from "react";
 
 export default function useStickyOnScroll(
-	ref: RefObject<HTMLElement>,
-	elementOffset?: number | null
+  ref: RefObject<HTMLElement>,
+  elementOffset?: number | null
 ): boolean {
-	const [isSticky, setIsSticky] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
-	useEffect(() => {
-		const offsetTop = ref.current?.offsetTop;
+  useEffect(() => {
+    const offsetTop = ref.current?.offsetTop;
 
-		const handleScroll = () => {
-			const scrollY = window.scrollY;
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
 
-			if (ref.current) {
-				let sticky = false;
-				if (elementOffset) {
-					sticky = scrollY > offsetTop! - elementOffset;
-				} else {
-					sticky = scrollY > offsetTop!;
-				}
-				setIsSticky(sticky);
-			}
-		};
+      if (ref.current) {
+        let sticky = false;
+        if (elementOffset) {
+          sticky = scrollY > offsetTop! - elementOffset;
+        } else {
+          sticky = scrollY > offsetTop!;
+        }
+        setIsSticky(sticky);
+      }
+    };
 
-		const handleScrollDebounced = () => {
-			requestAnimationFrame(handleScroll);
-		};
+    const handleScrollDebounced = () => {
+      requestAnimationFrame(handleScroll);
+    };
 
-		window.addEventListener('scroll', handleScrollDebounced);
+    window.addEventListener("scroll", handleScrollDebounced);
 
-		return () => {
-			window.removeEventListener('scroll', handleScrollDebounced);
-		};
-	}, [elementOffset, ref]);
+    return () => {
+      window.removeEventListener("scroll", handleScrollDebounced);
+    };
+  }, [elementOffset, ref]);
 
-	return isSticky;
+  return isSticky;
 }
