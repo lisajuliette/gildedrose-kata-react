@@ -14,7 +14,7 @@ interface ItemsProviderProps {
 	children: React.ReactNode;
 }
 
-export const ItemsProvider: React.FC<ItemsProviderProps> = ({ children }) => {
+export const ItemsProvider = ({ children }: ItemsProviderProps) => {
 	const itemsContextValue = useItems();
 	return (
 		<ItemsContext.Provider value={itemsContextValue}>

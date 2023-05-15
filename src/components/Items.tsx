@@ -2,7 +2,6 @@ import { useRef, useContext } from 'react';
 import { css, useTheme } from '@emotion/react';
 import useStickyOnScroll from '../hooks/useStickyOnScroll';
 import { ItemsContext } from './common/ItemsContext';
-import { UseItemsReturnType } from '../hooks/useItems';
 import ArrowLeft from './common/ArrowLeft';
 import ArrowRight from './common/ArrowRight';
 import Button from './common/Button';
@@ -12,10 +11,9 @@ import Item from './Item';
 import SunMoon from './common/SunMoon';
 
 const Items = () => {
-	const contextValue = useContext(ItemsContext);
-
-	const { items, handleNext, handleBack, hasHistory } = contextValue;
 	const theme = useTheme();
+	const { items, handleNext, handleBack, hasHistory } =
+		useContext(ItemsContext);
 
 	const ref = useRef<HTMLDivElement>(null);
 	const isSticky = useStickyOnScroll(ref, 140);
