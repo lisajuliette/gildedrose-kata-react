@@ -86,7 +86,7 @@ const Item = ({ item, index }: ItemProps) => {
           </div>
         </div>
       </GridItem>
-      <GridItem span={4} mdSpan={6} key={index}>
+      <GridItem span={4} mdSpan={6}>
         <div css={positionStyles}>
           {!isMobile && (
             <CardBorderVertical css={svgStyles} fill={qualityColor} />
@@ -102,7 +102,7 @@ const Item = ({ item, index }: ItemProps) => {
     </>
   ) : (
     <>
-      <GridItem span={4} mdSpan={4} key={index}>
+      <GridItem span={4} mdSpan={4}>
         <div css={positionStyles}>
           <CardBorderVertical css={svgStyles} fill={qualityColor} />
           <TextBox>

@@ -69,11 +69,7 @@ const Items = () => {
       </GridItem>
       <>
         {items.map((item, index) => (
-          <Item
-            key={item.name + item.quality + item.sellIn}
-            index={index}
-            item={item}
-          />
+          <Item key={index} index={index} item={item} />
         ))}
       </>
     </Grid>
