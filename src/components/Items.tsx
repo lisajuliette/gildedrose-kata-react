@@ -1,7 +1,7 @@
 import { useRef, useContext } from 'react';
 import { css, useTheme } from '@emotion/react';
 import useStickyOnScroll from '../hooks/useStickyOnScroll';
-import { ItemsContext, ItemsProvider } from './common/ItemsContext';
+import { ItemsContext } from './common/ItemsContext';
 import { UseItemsReturnType } from '../hooks/useItems';
 import ArrowLeft from './common/ArrowLeft';
 import ArrowRight from './common/ArrowRight';
@@ -11,15 +11,9 @@ import GridItem from './common/GridItem';
 import Item from './Item';
 import SunMoon from './common/SunMoon';
 
-const contextDefaultValue: UseItemsReturnType = {
-	items: [],
-	handleNext: () => {},
-	handleBack: () => {},
-	hasHistory: false,
-};
-
 const Items = () => {
-	const contextValue = useContext(ItemsContext) || contextDefaultValue;
+	const contextValue = useContext(ItemsContext);
+
 	const { items, handleNext, handleBack, hasHistory } = contextValue;
 	const theme = useTheme();
 
@@ -55,37 +49,35 @@ const Items = () => {
 	`;
 
 	return (
-		<ItemsProvider>
-			<Grid id="items">
-				<GridItem span={12} mdSpan={6}>
-					<div css={isSticky && filler}></div>
-					<div
-						className="StickyButtons"
-						css={isSticky && stickyButtonsStyle}
-						ref={ref}
-					>
-						<div css={buttonContainer}>
-							<Button disabled={!hasHistory} onClick={handleBack}>
-								<ArrowLeft disabled={!hasHistory} />
-							</Button>
-							<SunMoon />
-							<Button onClick={handleNext}>
-								<ArrowRight />
-							</Button>
-						</div>
+		<Grid id="items">
+			<GridItem span={12} mdSpan={6}>
+				<div css={isSticky && filler}></div>
+				<div
+					className="StickyButtons"
+					css={isSticky && stickyButtonsStyle}
+					ref={ref}
+				>
+					<div css={buttonContainer}>
+						<Button disabled={!hasHistory} onClick={handleBack}>
+							<ArrowLeft disabled={!hasHistory} />
+						</Button>
+						<SunMoon />
+						<Button onClick={handleNext}>
+							<ArrowRight />
+						</Button>
 					</div>
-				</GridItem>
-				<>
-					{items.map((item, index) => (
-						<Item
-							key={item.name + item.quality + item.sellIn}
-							index={index}
-							item={item}
-						/>
-					))}
-				</>
-			</Grid>
-		</ItemsProvider>
+				</div>
+			</GridItem>
+			<>
+				{items.map((item, index) => (
+					<Item
+						key={item.name + item.quality + item.sellIn}
+						index={index}
+						item={item}
+					/>
+				))}
+			</>
+		</Grid>
 	);
 };
 

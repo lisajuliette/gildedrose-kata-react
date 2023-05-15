@@ -3,7 +3,12 @@ import useItems, { UseItemsReturnType } from '../../hooks/useItems';
 
 type ItemsContextValue = UseItemsReturnType;
 
-export const ItemsContext = createContext<ItemsContextValue | null>(null);
+export const ItemsContext = createContext<ItemsContextValue>({
+	items: [],
+	handleNext: () => {},
+	handleBack: () => {},
+	hasHistory: false,
+});
 
 interface ItemsProviderProps {
 	children: React.ReactNode;
