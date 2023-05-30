@@ -1,12 +1,6 @@
 import type { Item } from "./types";
 import initialItems from "./initialItems";
-import imageVest from "./assets/images/vest.png";
-import imageBrie from "./assets/images/brie.png";
-import imageElixir from "./assets/images/potion_a.png";
-import imageWeapon from "./assets/images/weapon.png";
-import imageTickets from "./assets/images/tickets.png";
-import imageManacake from "./assets/images/manacake.png";
-import imageGoblin from "./assets/images/goblin.png";
+import { images } from "./utils/imageImports";
 
 type ItemType = Item;
 
@@ -18,7 +12,7 @@ const itemDescriptions: Record<
     description:
       "Increase your agility with this lightweight vest. Perfect for adventurers!",
     image: {
-      src: imageVest,
+      src: images.vest,
       alt: "Vest image",
     },
   },
@@ -26,7 +20,7 @@ const itemDescriptions: Record<
     description:
       "Savor the flavor of this exquisite aged cheese. The longer it ages, the better it gets!",
     image: {
-      src: imageBrie,
+      src: images.brie,
       alt: "Brie image",
     },
   },
@@ -34,7 +28,7 @@ const itemDescriptions: Record<
     description:
       "Boost your speed and agility with this powerful elixir. Perfect for hunters!",
     image: {
-      src: imageElixir,
+      src: images.elixir,
       alt: "potion image",
     },
   },
@@ -42,7 +36,7 @@ const itemDescriptions: Record<
     description:
       "The legendary weapon of the Firelord himself. Only the most powerful can wield it!",
     image: {
-      src: imageWeapon,
+      src: images.weapon,
       alt: "Weapon image",
     },
   },
@@ -50,7 +44,7 @@ const itemDescriptions: Record<
     description:
       "Get exclusive access to the hottest concert in town. Don't miss your chance!",
     image: {
-      src: imageTickets,
+      src: images.tickets,
       alt: "tickets image",
     },
   },
@@ -58,14 +52,14 @@ const itemDescriptions: Record<
     description:
       "Satisfy your sweet tooth while restoring your magical energy. Perfect for spellcasters!",
     image: {
-      src: imageManacake,
+      src: images.manacake,
       alt: "Manacake image",
     },
   },
   "Oops, The insta-rage Goblin stole this item": {
     description: "Oops, The insta-rage Goblin stole this item",
     image: {
-      src: imageGoblin,
+      src: images.goblin,
       alt: "Image of an angry goblin",
     },
   },

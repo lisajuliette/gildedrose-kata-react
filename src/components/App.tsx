@@ -7,9 +7,8 @@ import About from "./About";
 import ImageSection from "./ImageSection";
 import Notification from "./Notification";
 import ProductShowcase from "./ProductShowcase";
-import imageTavern1 from "../assets/images/tavern_interior.png";
-import imageTavern2 from "../assets/images/tavern_interior2.png";
 import { ItemsProvider } from "../context/ItemsContext";
+import { images } from "../utils/imageImports";
 
 const App = () => {
   const theme = useTheme();
@@ -21,9 +20,9 @@ const App = () => {
         <Hero />
         <main>
           <About />
-          <ImageSection imageUrl={imageTavern1} />
+          <ImageSection imageUrl={images.tavern1} />
           <Items />
-          <ImageSection imageUrl={imageTavern2} />
+          <ImageSection imageUrl={images.tavern2} />
           <Notification />
           <ProductShowcase />
         </main>
