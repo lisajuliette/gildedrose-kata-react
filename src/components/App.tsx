@@ -1,5 +1,5 @@
-import { css, Global, useTheme } from "@emotion/react";
-import { globalStyles } from "../styles/globalStyles";
+import { Global, useTheme } from "@emotion/react";
+import GlobalStyles from "../styles/globalStyles";
 import Items from "./Items";
 import Hero from "./Hero";
 import Footer from "./Footer";
@@ -14,36 +14,10 @@ import { ItemsProvider } from "../context/ItemsContext";
 const App = () => {
   const theme = useTheme();
 
-  const globalThemeStyles = css`
-    ${globalStyles}
-    ${theme.typography};
-
-    body {
-      background-color: ${theme.colors.background};
-      color: ${theme.colors.primary};
-    }
-
-    a {
-      color: ${theme.colors.primary};
-      &:hover {
-        color: ${theme.colors.highlight};
-      }
-    }
-
-    .text--secondary,
-    .text--secondary * {
-      color: ${theme.colors.secondary};
-    }
-
-    .background--primary {
-      background-color: ${theme.colors.primary};
-    }
-  `;
-
   return (
     <>
       <ItemsProvider>
-        <Global styles={globalThemeStyles} />
+        <Global styles={GlobalStyles(theme)} />
         <Hero />
         <main>
           <About />
