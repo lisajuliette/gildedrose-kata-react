@@ -2,6 +2,8 @@ import { css } from "@emotion/react";
 
 const GlobalStyles = (theme) => {
   const globalStyles = css`
+    ${theme.typography};
+
     *,
     *::before,
     *::after {
@@ -13,7 +15,6 @@ const GlobalStyles = (theme) => {
     }
 
     body {
-      ${theme.typography};
       background-color: ${theme.colors.background};
       color: ${theme.colors.primary};
       font-size: 1.6rem;
