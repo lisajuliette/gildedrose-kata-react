@@ -3,7 +3,7 @@ import { updateItems } from "../utils/gildedRose";
 import { Item } from "../types";
 import updatedItems from "../updatedItems";
 
-type UseItemsReturnType = {
+export type UseItemsReturnType = {
   items: Item[];
   handleNext: () => void;
   handleBack: () => void;

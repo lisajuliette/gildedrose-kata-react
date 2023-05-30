@@ -9,6 +9,7 @@ import Notification from "./Notification";
 import ProductShowcase from "./ProductShowcase";
 import imageTavern1 from "../assets/images/tavern_interior.png";
 import imageTavern2 from "../assets/images/tavern_interior2.png";
+import { ItemsProvider } from "../context/ItemsContext";
 
 const App = () => {
   const theme = useTheme();
@@ -41,17 +42,19 @@ const App = () => {
 
   return (
     <>
-      <Global styles={globalThemeStyles} />
-      <Hero />
-      <main>
-        <About />
-        <ImageSection imageUrl={imageTavern1} />
-        <Items />
-        <ImageSection imageUrl={imageTavern2} />
-        <Notification />
-        <ProductShowcase />
-      </main>
-      <Footer />
+      <ItemsProvider>
+        <Global styles={globalThemeStyles} />
+        <Hero />
+        <main>
+          <About />
+          <ImageSection imageUrl={imageTavern1} />
+          <Items />
+          <ImageSection imageUrl={imageTavern2} />
+          <Notification />
+          <ProductShowcase />
+        </main>
+        <Footer />
+      </ItemsProvider>
     </>
   );
 };

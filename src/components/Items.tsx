@@ -1,7 +1,7 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { css, useTheme } from "@emotion/react";
 import useStickyOnScroll from "../hooks/useStickyOnScroll";
-import useItems from "../hooks/useItems";
+import { ItemsContext } from "../context/ItemsContext";
 import ArrowLeft from "./common/ArrowLeft";
 import ArrowRight from "./common/ArrowRight";
 import Button from "./common/Button";
@@ -11,8 +11,9 @@ import Item from "./Item";
 import SunMoon from "./common/SunMoon";
 
 const Items = () => {
-  const { items, handleNext, handleBack, hasHistory } = useItems();
   const theme = useTheme();
+  const { items, handleNext, handleBack, hasHistory } =
+    useContext(ItemsContext);
 
   const ref = useRef<HTMLDivElement>(null);
   const isSticky = useStickyOnScroll(ref, 140);
@@ -24,8 +25,7 @@ const Items = () => {
     ${isSticky && `max-width: ${theme.breakpoints.lg};`}
     ${isSticky && "margin: 0 auto;"}
     ${isSticky && `padding: 0 ${theme.spacing.gap4};`}
-
-		svg {
+    svg {
       height: 50px;
     }
   `;
@@ -36,16 +36,15 @@ const Items = () => {
   `;
 
   const stickyButtonsStyle = css`
-		position: fixed;
-		top: 13.6rem;
-		width: 100%;
-		z-index: 2;
-		left: 0;
-
-		svg {
-			filter: drop-shadow(3px 2px 2px ${theme.colors.shadow}));
-		}
-	`;
+    position: fixed;
+    top: 13.6rem;
+    width: 100%;
+    z-index: 2;
+    left: 0;
+    svg {
+      filter: drop-shadow(3px 2px 2px ${theme.colors.shadow});
+    }
+  `;
 
   return (
     <Grid id="items">
@@ -69,7 +68,11 @@ const Items = () => {
       </GridItem>
       <>
         {items.map((item, index) => (
-          <Item key={index} index={index} item={item} />
+          <Item
+            key={item.name + item.quality + item.sellIn}
+            index={index}
+            item={item}
+          />
         ))}
       </>
     </Grid>
