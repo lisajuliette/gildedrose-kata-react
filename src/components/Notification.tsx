@@ -2,7 +2,7 @@ import { useTheme } from "@emotion/react";
 import Grid from "./common/Grid";
 import GridItem from "./common/GridItem";
 import Image from "./common/Image";
-import imageGoblin from "../assets/images/goblin.png";
+import { images } from "../utils/imageImports";
 
 const Notification = () => {
   const theme = useTheme();
@@ -24,7 +24,7 @@ const Notification = () => {
           </p>
         </GridItem>
         <GridItem span={4} mdSpan={4}>
-          <Image src={imageGoblin} alt="Image of Insta-Rage Goblin" />
+          <Image src={images.goblin} alt="Image of Insta-Rage Goblin" />
         </GridItem>
       </Grid>
     </div>

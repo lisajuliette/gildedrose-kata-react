@@ -3,23 +3,20 @@ import Grid from "./common/Grid";
 import GridItem from "./common/GridItem";
 import Image from "./common/Image";
 import TextBox from "./common/TextBox";
-import imageOrb from "../assets/images/orb.png";
-import imageGems from "../assets/images/gems.png";
-import imagePotion from "../assets/images/potion_c.png";
-import imageSpurt from "../assets/images/spurt.png";
+import { images } from "../utils/imageImports";
 
 const ProductShowcase = () => {
-  const images = [
-    { src: imageOrb, alt: "Image of crystal orb" },
-    { src: imageGems, alt: "Image of 3 gems" },
-    { src: imagePotion, alt: "Image of purple potion" },
+  const showcaseImages = [
+    { src: images.orb, alt: "Image of crystal orb" },
+    { src: images.gems, alt: "Image of 3 gems" },
+    { src: images.potion, alt: "Image of purple potion" },
   ];
 
   return (
     <Grid small id="showcase">
       <GridItem span={6} mdSpan={4}>
         <Image
-          src={imageSpurt}
+          src={images.spurt}
           alt="Image of Spurt Plushie, from The Mighty Nein"
         />
       </GridItem>
@@ -33,7 +30,7 @@ const ProductShowcase = () => {
             none.
           </p>
         </TextBox>
-        <VisualEntrances images={images} />
+        <VisualEntrances images={showcaseImages} />
       </GridItem>
     </Grid>
   );

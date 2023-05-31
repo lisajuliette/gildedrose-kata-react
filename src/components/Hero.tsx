@@ -4,13 +4,13 @@ import GridItem from "./common/GridItem";
 import Logo from "./common/Logo";
 import StickyHeader from "./StickyHeader";
 import Nav from "./Navigation";
-import imageTavern from "../assets/images/tavern.png";
+import { images } from "../utils/imageImports";
 
 const Hero = () => {
   const theme = useTheme();
 
   const heroStyles = css`
-    background-image: url(${imageTavern});
+    background-image: url(${images.hero});
     background-size: cover;
     min-height: 75vh; //move to variable
     position: relative;

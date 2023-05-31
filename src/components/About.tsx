@@ -2,13 +2,12 @@ import Grid from "./common/Grid";
 import GridItem from "./common/GridItem";
 import Image from "./common/Image";
 import TextBox from "./common/TextBox";
-import imageAlison from "../assets/images/alison.png";
-import imageBar from "../assets/images/tavern_bar.png";
+import { images } from "../utils/imageImports";
 
 const About = () => (
   <Grid id="about">
     <GridItem span={6} mdSpan={4}>
-      <Image src={imageAlison} alt="Image of the Tavern Owner, Alison" />
+      <Image src={images.alison} alt="Image of the Tavern Owner, Alison" />
     </GridItem>
     <GridItem span={6} mdSpan={6}>
       <TextBox>
@@ -44,7 +43,7 @@ const About = () => (
       </TextBox>
     </GridItem>
     <GridItem span={8} mdSpan={6}>
-      <Image src={imageBar} alt="Image of the Tavern Bar" />
+      <Image src={images.bar} alt="Image of the Tavern Bar" />
     </GridItem>
   </Grid>
 );
